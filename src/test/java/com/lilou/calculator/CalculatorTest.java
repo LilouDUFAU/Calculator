@@ -6,19 +6,22 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CalculatorTest {
-    Calculator calc;
 
+    // Calculator calc;
+
+    /*
     @BeforeEach
     void setUp() {
         calc = new Calculator();
     }
+    */
 
     @Test
     void add_devrait_calculer_la_somme_de_deux_int() {
         // GIVEN
 
         // WHEN
-        int resultat = calc.add(2,3);
+        int resultat = Calculator.add(2,3);
 
         // THEN
         assertEquals(5, resultat, "2 + 3 devrait etre egal a 5");
@@ -69,7 +72,7 @@ class CalculatorTest {
         // GIVEN
 
         // WHEN
-        int resultat = calc.divide(10,5);
+        int resultat = Calculator.divide(10,5);
 
         // THEN
         assertEquals(2,resultat, "10 divise par 5 doit donner 2");
