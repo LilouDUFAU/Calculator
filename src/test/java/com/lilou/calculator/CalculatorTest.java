@@ -1,14 +1,21 @@
 package com.lilou.calculator;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class CalculatorTest {
+    Calculator calc;
+
+    @BeforeEach
+    void setUp() {
+        calc = new Calculator();
+    }
+
     @Test
     void add_devrait_calculer_la_somme_de_deux_int() {
         // GIVEN
-        Calculator calc = new Calculator();
 
         // WHEN
         int resultat = calc.add(2,3);
@@ -60,7 +67,6 @@ class CalculatorTest {
     @Test
     void divide_devrait_calculer_la_division_de_deux_int(){
         // GIVEN
-        Calculator calc = new Calculator();
 
         // WHEN
         int resultat = calc.divide(10,5);
