@@ -1,7 +1,9 @@
 package com.lilou.calculator;
 
-import org.junit.jupiter.api.BeforeEach;
+// import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -16,15 +18,26 @@ class CalculatorTest {
     }
     */
 
-    @Test
-    void add_devrait_calculer_la_somme_de_deux_int() {
+    @ParameterizedTest
+    @CsvSource
+    ( {
+        "0, 1, 1",
+        "1, 2, 3",
+        "-2, 2, 0",
+        "0, 0, 0",
+        "-1, -2, -3"
+    })
+
+    // @Test
+    void add_devrait_calculer_la_somme_de_deux_int(int opG, int opD, int resultatAttendu) {
         // GIVEN
 
         // WHEN
-        int resultat = Calculator.add(2,3);
+        // int resultat = Calculator.add(2,3);
 
         // THEN
-        assertEquals(5, resultat, "2 + 3 devrait etre egal a 5");
+        //assertEquals(5, resultat, "2 + 3 devrait etre egal a 5");
+        assertEquals(resultatAttendu, Calculator.add(opG,opD), "Le resultat n'est pas le bon");
     }
 
     @Test
