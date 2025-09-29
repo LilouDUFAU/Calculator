@@ -4,6 +4,9 @@ package com.lilou.calculator;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -40,45 +43,6 @@ class CalculatorTest {
         assertEquals(resultatAttendu, Calculator.add(opG,opD), "Le resultat n'est pas le bon");
     }
 
-    @Test
-    void add_devrait_retourner_une_erreur_si_opG_est_var(){
-        // GIVEN
-
-        // WHEN
-
-        // THEN
-
-    }
-
-    @Test
-    void add_devrait_retourner_une_erreur_si_opD_est_var(){
-        // GIVEN
-
-        // WHEN
-
-        // THEN
-
-    }
-
-    @Test
-    void add_devrait_retourner_une_erreur_si_opG_null(){
-        // GIVEN
-
-        // WHEN
-
-        // THEN
-
-    }
-
-    @Test
-    void add_devrait_retourner_une_erreur_si_opD_null(){
-        // GIVEN
-
-        // WHEN
-
-        // THEN
-
-    }
 
     @Test
     void divide_devrait_calculer_la_division_de_deux_int(){
@@ -91,53 +55,19 @@ class CalculatorTest {
         assertEquals(2,resultat, "10 divise par 5 doit donner 2");
     }
 
-    @Test
-    void divide_devrait_retourner_une_erreur_si_opD_est_zero(){
-        // GIVEN
-
-        // WHEN
-
-        // THEN
-    }
 
     @Test
-    void divide_devrait_retourner_une_erreur_si_opG_est_var(){
+    void set_devrait_recuperer_les_chiffres_dun_nombre() {
         // GIVEN
+        Calculator calc = new Calculator();
 
         // WHEN
+        Set<Integer> result1 = calc.ensembleChiffres(7679);
+        Set<Integer> result2 = calc.ensembleChiffres(-11);
 
         // THEN
 
+        assertThat(result1).containsExactlyInAnyOrder(6,7,9).hasSize(3);
+        assertThat(result2).containsExactlyInAnyOrder(1).hasSize(1);
     }
-
-    @Test
-    void divide_devrait_retourner_une_erreur_si_opD_est_var(){
-        // GIVEN
-
-        // WHEN
-
-        // THEN
-
-    }
-
-    @Test
-    void divide_devrait_retourner_une_erreur_si_opG_null(){
-        // GIVEN
-
-        // WHEN
-
-        // THEN
-
-    }
-
-    @Test
-    void divide_devrait_retourner_une_erreur_si_opD_null(){
-        // GIVEN
-
-        // WHEN
-
-        // THEN
-
-    }
-
 }
