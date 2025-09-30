@@ -5,12 +5,23 @@ import java.util.Set;
 
 public class Calculator {
     // but : additionner des entiers
-    public static int add(int opG, int opD){
-        return opG + opD;
+    // exemple d'une erreur qui donne une levee d'exception : si on va plus loin que les bornes
+    public static int add(int opG, int opD) {
+        int res = opG + opD;
+        //
+        return res;
     }
 
+
+
     // but : diviser des entiers
+    // exemple d'une erreur qui donne une levee d'exception : diviseur = 0
     public static int divide(int opG, int opD) {
+
+        if (opD == 0 ) {
+            throw new IllegalArgumentException("On ne peut pas diviser par 0, changez le diviseur");
+        }
+
         return opG/opD;
     }
 

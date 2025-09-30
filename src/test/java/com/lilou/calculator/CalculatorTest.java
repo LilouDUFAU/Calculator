@@ -43,6 +43,11 @@ class CalculatorTest {
         assertEquals(resultatAttendu, Calculator.add(opG,opD), "Le resultat n'est pas le bon");
     }
 
+    @Test
+    void add_devrait_retourner_une_erreur_quand_le_resultat_est_plus_petit_que_le_plus_petit_operateur() {
+
+    }
+
 
     @Test
     void divide_devrait_calculer_la_division_de_deux_int(){
@@ -53,6 +58,18 @@ class CalculatorTest {
 
         // THEN
         assertEquals(2,resultat, "10 divise par 5 doit donner 2");
+    }
+
+    @Test
+    void divide_devrait_retourner_une_erreur_si_on_divise_par_zero(){
+        // GIVEN
+
+        // WHEN
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Calculator.divide(10, 0);
+        });
+
+        assertTrue(exception.getMessage().contains("On ne peut pas diviser par 0, changez le diviseur"));
     }
 
 
